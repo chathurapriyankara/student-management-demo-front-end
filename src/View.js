@@ -27,7 +27,7 @@ export class View extends React.Component {
     delete(id) {
         Axios.delete(`http://localhost:3001/delete/${id}`).then(()=>{
             const val = this.state.data.filter((val)=>{
-                return val._id != id
+                return val._id !== id
             });
             this.setState({data:val});
         });
@@ -42,6 +42,8 @@ export class View extends React.Component {
                                 <th>Student Name</th>
                                 <th>Age</th>
                                 <th>Degree</th>
+                                <th>Update</th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
