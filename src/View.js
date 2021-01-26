@@ -10,22 +10,21 @@ export class View extends React.Component {
 
     //Call this on page load
     componentDidMount() {
-        Axios.get('http://13.54.46.27:3001/get-all').then((res)=>{
+        Axios.get('http://localhost:3001/get-all').then((res)=>{
             this.setState({data:res.data});
-            console.log(res.data);
         });
     }
 
     update(id) {
         const name = prompt("Enter new age: ");
-        Axios.put('http://13.54.46.27:3001/update',{
+        Axios.put('http://localhost:3001/update',{
             newName: name,
             id:id
         });
     }
 
     delete(id) {
-        Axios.delete(`http://13.54.46.27:3001/delete/${id}`).then(()=>{
+        Axios.delete(`http://localhost:3001/delete/${id}`).then(()=>{
             const val = this.state.data.filter((val)=>{
                 return val._id !== id
             });
