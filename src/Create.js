@@ -8,7 +8,7 @@ export class Create extends React.Component {
     }
 
     addStudent() {
-        Axios.post('http://localhost:3001/insert',{
+        Axios.post('http://13.54.46.27:3001/insert',{
             name: this.state.name,
             age: this.state.age,
             degree: this.state.degree

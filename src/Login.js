@@ -8,7 +8,7 @@ export function Login({setToken}) {
 
     const login = e=> {
         e.preventDefault();
-        Axios.post('http://localhost:3001/login', {
+        Axios.post('http://13.54.46.27:3001/login', {
             username: {username},
             password: {password}
         }).then((res) => {
