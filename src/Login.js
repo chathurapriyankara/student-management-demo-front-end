@@ -15,6 +15,7 @@ export function Login({setTokenFunc}) {
             if(res.data['login'] === 'success') {
                 setTokenFunc('success');
             } else {
+                //This is not user friendly.
                 alert('Username or password is incorrect');
             }
         });
