@@ -7,10 +7,9 @@ import {Create} from "./Create"
 import {Login} from "./Login"
 
 function App() {
-    const [token, setToken] = useState('');
-
+    const [token,setToken] = useState('');
     if(!token) {
-        return <Login setToken={setToken} />
+        return <Login setTokenFunc={setToken} />
     }
     return (
         <Router>

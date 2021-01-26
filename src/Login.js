@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import Axios from "axios";
 
-export function Login({setToken}) {
+export function Login({setTokenFunc}) {
     const [username, setUserName] = useState('');
     const [password, setPassword] = useState('');
 
@@ -11,9 +11,9 @@ export function Login({setToken}) {
         Axios.post('http://13.54.46.27:3001/login', {
             username: {username},
             password: {password}
-        }).then((res) => {
+        }).then( (res) => {
             if(res.data['login'] === 'success') {
-                setToken('res.data')
+                setTokenFunc('success');
             } else {
                 alert('Username or password is incorrect');
             }
@@ -41,6 +41,7 @@ export function Login({setToken}) {
     )
 }
 
-Login.propTypes = {
-    setToken: PropTypes.func.isRequired
-}
+//Type checking
+// Login.propTypes = {
+//     setToken: PropTypes.func.isRequired
+// }
