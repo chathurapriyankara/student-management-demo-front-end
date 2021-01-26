@@ -12,7 +12,11 @@ export function Login({setToken}) {
             username: {username},
             password: {password}
         }).then((res) => {
-             setToken('res.data[0]');
+            if(res.data['login'] === 'success') {
+                setToken('res.data')
+            } else {
+                alert('Username or password is incorrect');
+            }
         });
     }
     return (
