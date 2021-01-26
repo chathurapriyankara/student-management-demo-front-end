@@ -2,4 +2,7 @@
   text-align: center;
 }
 
-.test {}
+.loginForm {
+  width: 40%;
+  margin:auto;
+}

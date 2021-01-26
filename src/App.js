@@ -1,11 +1,17 @@
 import './App.css';
-import React from 'react';
+import React, {useState} from 'react';
 import {Route, Switch, BrowserRouter as Router} from 'react-router-dom';
 import {NavBar} from "./NavBar";
 import {View} from "./View";
 import {Create} from "./Create"
+import {Login} from "./Login"
 
 function App() {
+    const [token, setToken] = useState('');
+
+    if(!token) {
+        return <Login setToken={setToken} />
+    }
     return (
         <Router>
             <div className="container-fluid">
