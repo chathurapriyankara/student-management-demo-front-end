@@ -1,5 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
+import authHeader from './AuthService';
 
 export class View extends React.Component {
     constructor(props) {
@@ -10,8 +11,15 @@ export class View extends React.Component {
 
     //Call this on page load
     componentDidMount() {
-        Axios.get('http://localhost:3001/get-all').then((res)=>{
-            this.setState({data:res.data});
+        //{headers: authHeader()}
+        Axios.get('http://localhost:3001/get-all',{headers: authHeader()}).then((res)=>{
+            this.setState({data: res.data});
+        }).catch((error)=>{
+            console.log(error.response.status);
+            this.props.history.push({
+                pathname:'/auth-error',
+                data:'test'
+            });
         });
     }
 

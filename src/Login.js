@@ -12,7 +12,9 @@ export function Login({setTokenFunc}) {
             username: {username},
             password: {password}
         }).then( (res) => {
-            if(res.data['login'] === 'success') {
+            console.log(res.data);
+            if(res.data) {
+                localStorage.setItem('token', res.data.token);
                 setTokenFunc('success');
             } else {
                 //This is not user friendly.
